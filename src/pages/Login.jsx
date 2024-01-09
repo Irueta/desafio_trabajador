@@ -3,12 +3,15 @@
 import { useState } from 'react';
 import { loginApi } from '../../apiDesafio.js';
 import './Login.css';
-import happyflow from '/happyflow.svg';
+import happyflow from '/login/happyflow.svg';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const [inputType, setInputType] = useState('password');
+  const [eyeIcon, setEyeIcon] = useState('/login/eyeOculto.svg');
 
   const validateInputs = () => {
     // Validación de email
@@ -50,21 +53,34 @@ const handleSumbit = (e) => {
     });        
 }
 
+
+const handleEyeClick = () => {
+  if (inputType === 'password') {
+    setInputType('text');
+    setEyeIcon('/login/eyeAlavista.svg');
+  } else {
+    setInputType('password');
+    setEyeIcon('/login/eyeOculto.svg');
+  }
+};
+
   return (
     <div>
       <img  className='happyflow' src={happyflow} alt='happyflow' />
       <form>
         <div className='inputs'>
-        <div className='input'>
+        <div className='input1'>
         <label>
-        <input type="text" className='inputLogin' value={email} placeholder='Usuario' onChange={(e) => setEmail(e.target.value)} />
+          <input type="text" className='inputLogin' value={email} placeholder='Usuario' onChange={(e) => setEmail(e.target.value)} />
+          <img src="/login/userIcon.svg" alt="user icon" className="user-icon" />
         </label>
         </div>
-        <div className='input'>
+        <div className='input2'>
         <label>
-          <input type="password" className='inputLogin' value={password} placeholder='Contraseña' onChange={(e) => setPassword(e.target.value)} />
+          <input type={inputType} className='inputLogin' value={password} placeholder='Contraseña' onChange={(e) => setPassword(e.target.value)} />
+          <img src={eyeIcon} alt="eye icon" className="eye-icon" onClick={handleEyeClick} />
         </label>
-        </div>
+      </div>
         </div>
         <div>
         <p className='passForgot'>¿Has olvidado la contraseña?</p>
