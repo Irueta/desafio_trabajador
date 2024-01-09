@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { loginApi } from '../../apiDesafio.js';
+import './Login.css';
+import happyflow from '/happyflow.svg';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -50,21 +52,29 @@ const handleSumbit = (e) => {
 
   return (
     <div>
+      <img  className='happyflow' src={happyflow} alt='happyflow' />
       <form>
-        <div>
+        <div className='inputs'>
+        <div className='input'>
         <label>
-          Username:
-          <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="text" className='inputLogin' value={email} placeholder='Usuario' onChange={(e) => setEmail(e.target.value)} />
         </label>
         </div>
-        <div>
+        <div className='input'>
         <label>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <input type="password" className='inputLogin' value={password} placeholder='Contraseña' onChange={(e) => setPassword(e.target.value)} />
         </label>
         </div>
-        <button onClick={handleSumbit}>Enviar</button>
+        </div>
+        <div>
+        <p className='passForgot'>¿Has olvidado la contraseña?</p>
+        </div>
+        <button className='inicio' onClick={handleSumbit}>Iniciar sesión</button>
       </form>
+      <div className='sincuenta'><p>¿No tienes cuenta?</p></div>
+      <div>
+      <button className='registro'>ENVIAR SOLICITUD A RRHH</button>
+      </div>
     </div>
   );
 };
