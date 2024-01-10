@@ -1,2 +1,0 @@
-//Cabecero.jsx
-

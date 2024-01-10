@@ -1,0 +1,94 @@
+/* Fichaje.css */
+
+body {
+    background: var(--Neutral-White, #fff) !important;
+  }
+
+  .fichaje{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .fichaje_container {
+    flex-grow: 1;
+  }
+
+  .gif{
+    margin-top: 10px;
+  }
+
+  .emociones_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    transform: scale(0.9);
+}
+
+.emocion {
+    transform: scale(0.97);
+    margin-top: 10px;
+}
+
+.emocion1 {
+    border-radius: 5px;
+    background: var(--Neutral-Black-60, #666);
+}
+
+.emocion2 {
+    border-radius: 5px;
+    background: var(--Secondary-100, #5F6AFF);
+}
+
+.emocion3 {
+    border-radius: 5px;
+    background: var(--Red, #EB5757);
+}
+
+.emocion4 {
+    border-radius: 5px;
+    background: var(--Primary-100, #FF9F1C);
+}
+
+.emocion_name {
+    color: var(--Neutral-White, #FFF);
+text-align: center;
+/* Captions/Btn */
+font-family: Open Sans;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: 1.25px;
+text-transform: uppercase;
+margin-top: -2px;
+}
+
+.explicacion{
+    margin-top: 50px;
+    margin-bottom: -14px;
+    color: #000;
+text-align: center;
+
+/* Subtitles/S1 */
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: 0.15px;
+}
+
+.recordatorio{
+    color: #000;
+text-align: center;
+
+/* Headlines/H6 */
+font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.15px;
+margin-top: 10px;
+}

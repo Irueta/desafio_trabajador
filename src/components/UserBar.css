@@ -1,0 +1,52 @@
+/* UserBar.css */
+
+.userbar_container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: 10% 60% 30%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--Secondary-100, #5F6AFF);
+    background: var(--Neutral-White, #FFF);
+    width: 400px;
+    height: 70px;
+}
+
+.foto {
+    width: 50   px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 100%;
+    margin-left: 20px;
+}
+
+.cargoNombre{
+    text-align: left;
+    margin-left: 45px;
+}
+
+.cargo {
+    color: var(--Neutral-Black-100, #000);
+    /* Captions/Cpt */
+    font-family: Open Sans;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.4px;
+}
+
+.nombre {
+    color: var(--Neutral-Black-100, #000);
+    /* Headlines/H6 */
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.15px;
+    margin-top: -15px;
+}
