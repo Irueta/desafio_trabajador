@@ -1,6 +1,7 @@
 //Login.jsx
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { loginApi } from '../../apiDesafio.js';
 import './Login.css';
 import happyflow from '/login/happyflow.svg';
@@ -12,45 +13,26 @@ const Login = () => {
   const [error, setError] = useState(null);
   const [inputType, setInputType] = useState('password');
   const [eyeIcon, setEyeIcon] = useState('/login/eyeOculto.svg');
+  const navigate = useNavigate();
 
-  const validateInputs = () => {
-    // Validación de email
-    let errorsAccumulated = '';
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailRegex.test(email)) {
-    errorsAccumulated += 'El formato del email no es válido. ';
-    }
 
-    // Validación de contraseña
-    const passwordRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
-    if (!passwordRegex.test(password)) {
-    errorsAccumulated += 'La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número. ';
-    }
 
-    if (errorsAccumulated !== '') {
-    setError(errorsAccumulated);
-    return false;
-    }
-
-    return true;
-}
-
-const handleSumbit = (e) => {
+  const handleSumbit = async (e) => {
     e.preventDefault();
- /*    if (email === '' || password === '') {
+ if (email === '' || password === '') {
         setError('Todos los campos son obligatorios');
         return;
     }
-    if (!validateInputs()) {
-        return;
-    } */
     setError(null);
-    loginApi(email, password)
-    .then(response => {
-        setSession(response.data);
-    }).catch(error => {
-        setError('Usuario o contraseña incorrectos');
-    });        
+    const {response, data} = await loginApi(email, password)
+    console.log(response)
+    if (response.status === 200) {
+      navigate('/fichaje');
+    }else{
+      alert('Credenciales incorrectas')
+    }
+    
+
 }
 
 

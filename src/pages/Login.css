@@ -32,6 +32,7 @@ img {
 
 .happyflow{
     margin-top: 65px;
+    margin-bottom: 95px;
 }
 
 .input1 .input2 {
@@ -72,7 +73,7 @@ img {
     display: flex;
     justify-content: flex-end;
     width: 300px;
-    margin-top: 10px;
+    margin-top: 100px;
     color: #000;
     text-align: right;
     /* Body/P1 */
