@@ -90,14 +90,14 @@
 }
 
 .tick {
-    border-radius: 100px;
-    background: var(--Primary-100, #FF9F1C);
+    border-radius: 10px;
+    background: var(--Secondary-100, #5F6AFF);
     height: 50px;
     width: 120px;
 }
 
 .cross {
-    border-radius: 100px;
+    border-radius: 10px;
     background: var(--Red, #EB5757);
     height: 50px;
     width: 120px;
