@@ -6,6 +6,7 @@ const TimerContext = createContext();
 const TimerProvider = ({ children }) => {
   const [time, setTime] = useState(0);
   const [isActive, setIsActive] = useState(false);
+  const [dataUser, setDataUser] = useState(null);
 
   useEffect(() => {
     let interval = null;

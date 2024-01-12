@@ -72,7 +72,9 @@ const Encuestas = () => {
       return (
         <div>
             <Userbar />
+            <div className='encuestasStepBar'>
             <MultiStepBar currentStep={currentQuestionIndex + 1} stepCount={questions.length} />
+            </div>
           <h1 className='encuestaTitle'>{currentQuestionIndex}. {currentQuestion.title}</h1>
           <p className='encuestaPregunta'>{currentQuestion.question}</p>
           {currentQuestion.options.map((option, index) => (

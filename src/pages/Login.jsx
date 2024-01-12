@@ -26,6 +26,7 @@ const Login = () => {
     setError(null);
     const {response, data} = await loginApi(email, password)
     console.log(response)
+    console.log("DATA",data)
     if (response.status === 200) {
       navigate('/fichaje');
     }else{

@@ -1,6 +1,6 @@
 //App.jsx
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './pages/Login'
@@ -14,6 +14,19 @@ import Modal from './components/Modal'
 
 
 function App() {
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case '/':
+        document.body.style.background = 'url(../assets/img/inicioFondo.png) no-repeat center center fixed';
+        break;
+      case '/login':
+        document.body.style.background = 'url(../assets/img/inicioFondo.png) no-repeat center center fixed';
+        break;
+      default:
+        document.body.style.background = '#fff';
+    }
+  }, [location]);
 
   return (
 <TimerProvider>

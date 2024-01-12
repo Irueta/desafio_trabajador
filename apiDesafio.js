@@ -33,8 +33,10 @@ const fetchUserData = async () => {
             credentials: "include",  
         });
 
+
         if (response.ok) {
             const data = await response.json();
+            console.log(data);
             return { response, data };
         } else {
             console.error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
