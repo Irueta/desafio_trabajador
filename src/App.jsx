@@ -8,6 +8,7 @@ import Fichaje from './pages/Fichaje'
 import Perfil from './pages/Perfil'
 import Comunidad from './pages/Comunidad'
 import Encuestas from './pages/Encuestas'
+import Inicio from './pages/Inicio'
 import { TimerProvider } from './contexts/TimerContext'
 import Modal from './components/Modal'
 

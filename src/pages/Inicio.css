@@ -1,3 +1,50 @@
 body {
-    background: url(../assets/img/inicioFondo.png) no-repeat center center fixed;
+    background: url(../assets/img/inicioFondo.png) no-repeat center center fixed !important;
+}
+
+.frase {
+    color: var(--Neutral-Black-100, #000);
+    font-family: Montserrat;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.15px;
+    text-align: left;
+    margin-bottom: -20px;
+}
+
+.confia > p {
+    color: var(--Neutral-Black-100, #000);
+    font-family: Montserrat;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.15px;
+}
+
+.confia {
+    display: flex;
+    flex-direction: row;
+    margin-top: -45px;
+}
+
+.confia > img {
+    padding-top: 10px;
+    padding-left: 12px;
+}
+
+.miniLogo {
+    position: relative;
+    left: -133px;
+    margin-top: 340px;
+}
+
+.botonInicio {
+    margin-top: 20px;
+}
+
+.inicioPage1 {
+    margin-left: 14px;
 }
