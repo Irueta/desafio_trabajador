@@ -1,5 +1,6 @@
 import React from 'react';
 import './Modal.css';
+import TimerButton from './TimerButton';
 
 const Modal = ({ isOpen, handleClose, emotion }) => {
     if (!isOpen) {
@@ -75,7 +76,7 @@ const Modal = ({ isOpen, handleClose, emotion }) => {
             </div>
             <p className='confirmacion'>¿Está seguro de realizar éste fichaje?</p>
             <div className='botones'>
-                <img className='tick' src="/modal/tick.svg" alt="" />
+                <TimerButton />
                 <img className='cross' src="/modal/cross.svg" alt="" onClick={handleClose}/>
             </div>
             </div>

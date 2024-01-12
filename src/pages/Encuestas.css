@@ -1,0 +1,34 @@
+.encuestaTitle {
+    color: #000;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.15px;
+}
+
+.encuestaPregunta {
+    color: #000;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+
+.encuestaOpcion {
+    color: #000;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.5px;
+}
+
+.encuestaInput {
+    stroke-width: 1px;
+    stroke: var(--Neutral-Black-100, #000);
+}

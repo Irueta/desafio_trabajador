@@ -11,9 +11,15 @@
     align-items: center;
     border-bottom: 1px solid var(--Secondary-100, #5F6AFF);
     background: var(--Neutral-White, #FFF);
+    background-color:  var(--Neutral-White, #FFF);;
     width: 400px;
     height: 70px;
+    z-index: 9999;
 }
+
+.no-border {
+    border-bottom: none !important;
+  }
 
 .foto {
     width: 50   px;
