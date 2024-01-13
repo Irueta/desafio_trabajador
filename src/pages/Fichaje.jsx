@@ -17,24 +17,24 @@ const Fichaje = () => {
                 <div className='explicacion'><p>Para fichar selecciona la animación que mejor te represente en éste momento.</p></div>
                 <div className='emociones_container'>
                     <div className='emocion emocion1' onClick={() => {setIsOpen(true); setSelectedEmotion('MIEDO');}}>
-                        <img className='gif' src="/emociones/miedo.svg" alt="" />
+                        <img className='gif' src="/emociones/miedo_mod.gif" alt="" />
                         <p className='emocion_name'>MIEDO</p>
                     </div>
                     <div className='emocion emocion2' onClick={() => {setIsOpen(true); setSelectedEmotion('TRISTEZA');}}>
-                        <img className='gif' src="/emociones/tristeza.svg" alt="" />
+                        <img className='gif' src="/emociones/tristeza_mod.gif" alt="" />
                         <p className='emocion_name'>TRISTEZA</p>
                     </div>
                     <div className='emocion emocion3' onClick={() => {setIsOpen(true); setSelectedEmotion('IRA');}}>
-                        <img className='gif' src="/emociones/ira.svg" alt="" />
+                        <img className='gif' src="/emociones/ira_mod.gif" alt="" />
                         <p className='emocion_name'>IRA</p>
                     </div>
                     <div className='emocion emocion4' onClick={() => {setIsOpen(true); setSelectedEmotion('ALEGRÍA');}}>
-                        <img className='gif' src="/emociones/alegria.svg" alt="" />
+                        <img className='gif' src="/emociones/alegria_mod.gif" alt="" />
                         <p className='emocion_name'>ALEGRÍA</p>
                     </div>
                 </div>
                 {isOpen && (
-    <Modal isOpen={isOpen} handleClose={() => setIsOpen(false)} emotion={selectedEmotion} />
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} handleClose={() => setIsOpen(false)} emotion={selectedEmotion} />
 )}
                 <div className='recordatorio'><p>Aún no has realizado el fichaje de entrada.</p></div>
                 <NavBar />

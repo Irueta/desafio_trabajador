@@ -1,0 +1,22 @@
+.timerShow {
+  border-radius: 10px;
+  color: var(--Neutral-White, #FFF);
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+  width: 55px;
+  margin-left: 28px;
+}
+  
+  .timerShow.active {
+    background-color: #219653;
+  }
+  
+  .timerShow.inactive {
+    background-color: #EB5757; 
+  }

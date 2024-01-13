@@ -1,16 +1,38 @@
 // TimerButton.js
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { TimerContext } from '../contexts/TimerContext';
+import { fetchUserData } from '../../apiDesafio';
 
-const TimerButton = () => {
+const TimerButton = ({ emotion, timerStatus, setIsOpen }) => {
   const { startTimer, stopTimer, isActive } = useContext(TimerContext);
+  const [userData, setUserData] = useState(null);
+
+
+
+  const handleClick = () => {
+    const fetchData = async () => {
+      const {response,data} = await fetchUserData();
+      if (response.status === 200) {
+          setUserData(data);
+      }
+  }
+  fetchData();
+  console.log(emotion);
+  console.log(timerStatus);
+  if (userData !== null) {
+    console.log(userData);
+  }
+  setIsOpen(false);
+  alert(`Se ha realizado un fichaje de ${timerStatus} con el estado de ánimo ${emotion}\nConocer su estado de ánimo nos sirve de gran ayuda para que podamos mejorar sus condiciones laborales.`);
+  };
+
 
   return (
     <>
       {isActive ? (
-        <button onClick={stopTimer}>Stop</button>
+        <img className='tick' src="/modal/tick.svg" alt="" onClick={() => { stopTimer(); handleClick(); }}/>
       ) : (
-        <button onClick={startTimer}>Start</button>
+        <img className='tick' src="/modal/tick.svg" alt="" onClick={() => { startTimer(); handleClick(); }}/>
       )}
     </>
   );

@@ -48,7 +48,7 @@ const handleEyeClick = () => {
 };
 
   return (
-    <div>
+    <div className='bodyLogin'>
       <img  className='happyflow' src={happyflow} alt='happyflow' />
       <form>
         <div className='inputs'>

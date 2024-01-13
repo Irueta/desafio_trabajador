@@ -12,27 +12,35 @@ body {
 
   .fichaje_container {
     flex-grow: 1;
+    margin-left: -18px;
   }
 
   .gif{
-    margin-top: 10px;
+    transform: scale(0.8);
+    border-radius: 10px;
+    margin: -4px -4px -10px -4px;
   }
 
   .emociones_container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    transform: scale(0.9);
+    transform: scale(0.8);
 }
 
 .emocion {
-    transform: scale(0.97);
-    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 180px;
+    height: 200px;
+
 }
 
 .emocion1 {
     border-radius: 5px;
     background: var(--Neutral-Black-60, #666);
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .emocion2 {
@@ -61,7 +69,7 @@ font-weight: 400;
 line-height: normal;
 letter-spacing: 1.25px;
 text-transform: uppercase;
-margin-top: -2px;
+margin-top: 2px;
 }
 
 .explicacion{
@@ -90,5 +98,5 @@ font-style: normal;
 font-weight: 500;
 line-height: normal;
 letter-spacing: 0.15px;
-margin-top: 10px;
+margin-top: -30px;
 }

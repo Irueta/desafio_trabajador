@@ -1,8 +1,13 @@
-import React from 'react';
+import { useContext } from 'react';
 import './Modal.css';
 import TimerButton from './TimerButton';
+import { TimerContext } from '../contexts/TimerContext';
 
-const Modal = ({ isOpen, handleClose, emotion }) => {
+
+const Modal = ({ isOpen, handleClose, emotion, setIsOpen}) => {
+    const { isActive } = useContext(TimerContext);
+    const timerStatus = isActive ? 'Salida' : 'Entrada';
+
     if (!isOpen) {
         return null;
     }
@@ -71,12 +76,12 @@ const Modal = ({ isOpen, handleClose, emotion }) => {
             <div className='datosFichaje'>
             <p className='datosTitulo'>Tipo de fichaje:</p>
             <p className='datosTitulo'>Fecha:</p>
-            <p className='datosInfo'>Entrada</p>
+            <p className='datosInfo'>{timerStatus}</p>
             <p className='datosInfo'>03 / 05 / 2024</p>
             </div>
             <p className='confirmacion'>¿Está seguro de realizar éste fichaje?</p>
             <div className='botones'>
-                <TimerButton />
+                <TimerButton emotion={emotion} timerStatus={timerStatus} setIsOpen={setIsOpen}/>
                 <img className='cross' src="/modal/cross.svg" alt="" onClick={handleClose}/>
             </div>
             </div>
