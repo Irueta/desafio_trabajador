@@ -10,7 +10,7 @@ body {
     height: 100vh;
   }
 
-  .fichaje_container {
+  .fichaje_containerAll {
     flex-grow: 1;
     margin-left: -18px;
   }
@@ -100,3 +100,11 @@ line-height: normal;
 letter-spacing: 0.15px;
 margin-top: -30px;
 }
+
+.opaque {
+    opacity: 0.5;
+  }
+
+/*   .opaque {
+    filter: blur(5px);
+  } */

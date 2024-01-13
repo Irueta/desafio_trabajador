@@ -12,10 +12,12 @@ const Fichaje = () => {
 
     return (
         <div className="fichaje">
-            <UserBar />
-            <div className='fichaje_container'>
-                <div className='explicacion'><p>Para fichar selecciona la animación que mejor te represente en éste momento.</p></div>
-                <div className='emociones_container'>
+            <div className={isOpen ? 'opaque' : ''}>
+            <UserBar /> 
+            </div>
+            <div className='fichaje_containerAll'>
+                <div className={`explicacion ${isOpen ? 'opaque' : ''}`}><p>Para fichar selecciona la animación que mejor te represente en éste momento.</p></div>
+                <div className={`emociones_container ${isOpen ? 'opaque' : ''}`}>
                     <div className='emocion emocion1' onClick={() => {setIsOpen(true); setSelectedEmotion('MIEDO');}}>
                         <img className='gif' src="/emociones/miedo_mod.gif" alt="" />
                         <p className='emocion_name'>MIEDO</p>
@@ -36,8 +38,8 @@ const Fichaje = () => {
                 {isOpen && (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen} handleClose={() => setIsOpen(false)} emotion={selectedEmotion} />
 )}
-                <div className='recordatorio'><p>Aún no has realizado el fichaje de entrada.</p></div>
-                <NavBar />
+                <div className={`recordatorio ${isOpen ? 'opaque' : ''}`}><p>Aún no has realizado el fichaje de entrada.</p></div>
+                <div className={`nabegator ${isOpen ? 'opaque' : ''}`}><NavBar /></div>
             </div>
         </div>
     )

@@ -18,7 +18,7 @@ const Modal = ({ isOpen, handleClose, emotion, setIsOpen}) => {
             <div className='datosModal'>
             <p className='info'>Estado de ánimo seleccionado:</p>
             <h1 className='titulo'>MIEDO</h1>
-            <img className='gifModal' src="/emociones/miedo.svg" alt="" />
+            <img className='gifModal miedoGif' src="/emociones/miedo_mod.gif" alt="" />
             <div className='datosFichaje'>
             <p className='datosTitulo'>Tipo de fichaje:</p>
             <p className='datosTitulo'>Fecha:</p>
@@ -27,7 +27,7 @@ const Modal = ({ isOpen, handleClose, emotion, setIsOpen}) => {
             </div>
             <p className='confirmacion'>¿Está seguro de realizar éste fichaje?</p>
             <div className='botones'>
-                <img className='tick' src="/modal/tick.svg" alt="" />
+                <TimerButton emotion={emotion} timerStatus={timerStatus} setIsOpen={setIsOpen}/>
                 <img className='cross' src="/modal/cross.svg" alt="" onClick={handleClose}/>
             </div>
             </div>
@@ -36,7 +36,7 @@ const Modal = ({ isOpen, handleClose, emotion, setIsOpen}) => {
             <div className='datosModal'>
             <p className='info'>Estado de ánimo seleccionado:</p>
             <h1 className='titulo'>TRISTEZA</h1>
-            <img className='gifModal' src="/emociones/tristeza.svg" alt="" />
+            <img className='gifModal' src="/emociones/tristeza_mod.gif" alt="" />
             <div className='datosFichaje'>
             <p className='datosTitulo'>Tipo de fichaje:</p>
             <p className='datosTitulo'>Fecha:</p>
@@ -45,7 +45,7 @@ const Modal = ({ isOpen, handleClose, emotion, setIsOpen}) => {
             </div>
             <p className='confirmacion'>¿Está seguro de realizar éste fichaje?</p>
             <div className='botones'>
-                <img className='tick' src="/modal/tick.svg" alt="" />
+                <TimerButton emotion={emotion} timerStatus={timerStatus} setIsOpen={setIsOpen}/>
                 <img className='cross' src="/modal/cross.svg" alt="" onClick={handleClose}/>
             </div>
             </div>
@@ -54,7 +54,7 @@ const Modal = ({ isOpen, handleClose, emotion, setIsOpen}) => {
             <div className='datosModal'>
             <p className='info'>Estado de ánimo seleccionado:</p>
             <h1 className='titulo'>IRA</h1>
-            <img className='gifModal' src="/emociones/ira.svg" alt="" />
+            <img className='gifModal' src="/emociones/ira_mod.gif" alt="" />
             <div className='datosFichaje'>
             <p className='datosTitulo'>Tipo de fichaje:</p>
             <p className='datosTitulo'>Fecha:</p>
@@ -63,7 +63,7 @@ const Modal = ({ isOpen, handleClose, emotion, setIsOpen}) => {
             </div>
             <p className='confirmacion'>¿Está seguro de realizar éste fichaje?</p>
             <div className='botones'>
-                <img className='tick' src="/modal/tick.svg" alt="" />
+                <TimerButton emotion={emotion} timerStatus={timerStatus} setIsOpen={setIsOpen}/>
                 <img className='cross' src="/modal/cross.svg" alt="" onClick={handleClose}/>
             </div>
             </div>
@@ -72,7 +72,7 @@ const Modal = ({ isOpen, handleClose, emotion, setIsOpen}) => {
             <div className='datosModal'>
             <p className='info'>Estado de ánimo seleccionado:</p>
             <h1 className='titulo'>ALEGRIA</h1>
-            <img className='gifModal' src="/emociones/alegria.svg" alt="" />
+            <img className='gifModal' src="/emociones/alegria_mod.gif" alt="" />
             <div className='datosFichaje'>
             <p className='datosTitulo'>Tipo de fichaje:</p>
             <p className='datosTitulo'>Fecha:</p>

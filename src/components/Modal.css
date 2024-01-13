@@ -4,17 +4,16 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -40%) scale(1);
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    z-index: 1000;
+    z-index: 10000;
     width: 80%;
     max-width: 500px;
     border-radius: 32px 32px 0px 0px;
     background: var(--Neutral-White, #FFF);
     box-shadow: 0px -3px 27.6px -9px #5F6AFF;
-    
 }
 
 
@@ -50,10 +49,10 @@
 
 
 .gifModal {
-    border-radius: 5px;
-    transform: scale(1.5);
-    margin-top: 30px;
-    margin-bottom: 30px;
+    border-radius: 10px;
+    transform: scale(0.7);
+    margin-top: -15px;
+    margin-bottom: -10px;
 }
 
 .datosTitulo {
@@ -107,4 +106,9 @@
     display: flex;
     justify-content: space-around;
 
+}
+
+.miedoGif {
+    transform: scale(0.6);
+    margin: -70px 0px -65px -45px;
 }
