@@ -1,5 +1,6 @@
 //Encuestas.jsx
 import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import Userbar from '../components/UserBar';
 import NavBar from '../components/NavBar';
 import MultiStepBar from '../components/MultiStepBar';
@@ -7,6 +8,8 @@ import "./Encuestas.css";
 
 
 const Encuestas = () => {
+  const navigate = useNavigate();
+
     const questions = [
         {
           id: 1,
@@ -47,13 +50,20 @@ const Encuestas = () => {
         
       ];
 
+
       const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
       const [answers, setAnswers] = useState(Array(questions.length).fill(null));
       const currentQuestion = questions[currentQuestionIndex];
     
       const handleNext = () => {
-        if (currentQuestionIndex < questions.length - 1) {
+        if (currentQuestionIndex < questions.length) {
           setCurrentQuestionIndex(currentQuestionIndex + 1);
+        }
+
+        if (currentQuestionIndex === questions.length - 1) {
+          console.log(answers);
+          alert('Tus respuestas han sido guardadas.');
+          navigate('/perfil');
         }
       };
     
@@ -71,28 +81,41 @@ const Encuestas = () => {
     
       return (
         <div>
-            <Userbar />
+          <div className='headerEncuesta'>
+            <Link to="/perfil"><img className='headerEncuestaImg' src="/encuestas/flecha.svg" alt="" /></Link>
+            <Link to="/perfil"><h4 className='headerEncuestaH4'>Encuesta</h4></Link>
+          </div>
             <div className='encuestasStepBar'>
             <MultiStepBar currentStep={currentQuestionIndex + 1} stepCount={questions.length} />
             </div>
-          <h1 className='encuestaTitle'>{currentQuestionIndex}. {currentQuestion.title}</h1>
-          <p className='encuestaPregunta'>{currentQuestion.question}</p>
-          {currentQuestion.options.map((option, index) => (
-            <div key={index}>
-              <input
-                type="radio"
-                className='encuestaInput'
-                id={`option-${index}`}
-                name="questionOption"
-                value={option}
-                checked={answers[currentQuestionIndex] === option}
-                onChange={handleOptionChange}
-              />
-              <label className='encuestaOpcion' htmlFor={`option-${index}`}>{option}</label>
+            <div className='divEncuestaTitle'>
+              <h1 className='encuestaTitle'>{currentQuestionIndex}. {currentQuestion.title}</h1>
             </div>
-          ))}
-          <button onClick={handlePrevious}>Anterior</button>
-          <button onClick={handleNext}>Siguiente</button>
+            <div className='divEncuestaPregunta'>
+              <p className='encuestaPregunta'>{currentQuestion.question}</p>
+            </div>
+            <div className='divOpciones'>
+              {currentQuestion.options.map((option, index) => (
+                <div key={index}>
+                  <input
+                    type="radio"
+                    className='encuestaInput'
+                    id={`option-${index}`}
+                    name="questionOption"
+                    value={option}
+                    checked={answers[currentQuestionIndex] === option}
+                    onChange={handleOptionChange}
+                  />
+                  <label className='encuestaOpcion' htmlFor={`option-${index}`}>{option}</label>
+                </div>
+              ))}
+            </div>
+            <div className='divBotones'>
+              {currentQuestionIndex > 0 && <button onClick={handlePrevious}>Anterior</button>}
+              <button onClick={handleNext}>
+              {currentQuestionIndex === questions.length - 1 ? 'Finalizar' : 'Siguiente'}
+            </button>
+            </div>
           <NavBar />
         </div>
       );
