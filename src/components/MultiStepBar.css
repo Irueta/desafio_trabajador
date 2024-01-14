@@ -1,17 +1,35 @@
 .multi-step-bar {
     display: flex;
     justify-content: space-between;
+    margin: -142px 0px 40px 0px;
+    z-index: 10;
+    position: relative;
   }
   
   .step {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 20px;
     height: 20px;
     background: #CCC;
     border-radius: 50%;
+    font-size: 12px; /* Ajusta esto según sea necesario */
   }
   
   .step.active {
     background: #5F6AFF;
   }
 
-  
+  .barra {
+    z-index: 1;
+    position: relative;
+    top: -115px;
+    left: 0px;
+  }
+
+  .encuestasStepBar {
+    margin-top: 35px;
+    position: absolute;
+    top: 180px; 
+  }

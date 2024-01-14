@@ -3,6 +3,8 @@ import "./MultiStepBar.css";
 
 const MultiStepBar = ({ currentStep, stepCount }) => {
     return (
+      <>
+        <div className="barra"><img src="/multiStepBar/barra.svg" alt="" /></div>
       <div className="multi-step-bar">
         {[...Array(stepCount)].map((_, i) => (
           <div
@@ -13,6 +15,7 @@ const MultiStepBar = ({ currentStep, stepCount }) => {
           </div>
         ))}
       </div>
+      </>
     );
   };
 

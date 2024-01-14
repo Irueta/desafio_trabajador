@@ -11,6 +11,10 @@ const Encuestas = () => {
   const navigate = useNavigate();
 
     const questions = [
+      {id: 1,
+        title: 'Compañerismo en el trabajo.',
+      questions:[
+
         {
           id: 1,
           title: 'Satisfacción en el trabajo.',
@@ -47,21 +51,27 @@ const Encuestas = () => {
             question: '¿Sientes que la organización respeta tu tiempo fuera del trabajo?',
             options: ['Totalmente', 'Casi siempre', 'Rara vez lo respeta.', 'Nunca lo respeta.'],
           },
+    ]}
         
       ];
 
-
+      const survey = questions[0];
+      const surveyQuestions = survey.questions;
       const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-      const [answers, setAnswers] = useState(Array(questions.length).fill(null));
-      const currentQuestion = questions[currentQuestionIndex];
+      const [answers, setAnswers] = useState(Array(surveyQuestions.length).fill(null));
+      const currentQuestion = surveyQuestions[currentQuestionIndex];
     
       const handleNext = () => {
-        if (currentQuestionIndex < questions.length) {
+        if (currentQuestionIndex < surveyQuestions.length) {
           setCurrentQuestionIndex(currentQuestionIndex + 1);
         }
 
-        if (currentQuestionIndex === questions.length - 1) {
-          console.log(answers);
+        if (currentQuestionIndex === surveyQuestions.length - 1) {
+          console.log({
+            'EncuestaId': questions[0].id, 
+            'EncuestaTitle': questions[0].title, 
+            "Respuestas": answers
+          });
           alert('Tus respuestas han sido guardadas.');
           navigate('/perfil');
         }
@@ -86,10 +96,10 @@ const Encuestas = () => {
             <Link to="/perfil"><h4 className='headerEncuestaH4'>Encuesta</h4></Link>
           </div>
             <div className='encuestasStepBar'>
-            <MultiStepBar currentStep={currentQuestionIndex + 1} stepCount={questions.length} />
+            <MultiStepBar currentStep={currentQuestionIndex + 1} stepCount={surveyQuestions.length} />
             </div>
             <div className='divEncuestaTitle'>
-              <h1 className='encuestaTitle'>{currentQuestionIndex}. {currentQuestion.title}</h1>
+              <h1 className='encuestaTitle'>{currentQuestionIndex + 1}. {currentQuestion.title}</h1>
             </div>
             <div className='divEncuestaPregunta'>
               <p className='encuestaPregunta'>{currentQuestion.question}</p>
@@ -113,7 +123,7 @@ const Encuestas = () => {
             <div className='divBotones'>
               {currentQuestionIndex > 0 && <button onClick={handlePrevious}>Anterior</button>}
               <button onClick={handleNext}>
-              {currentQuestionIndex === questions.length - 1 ? 'Finalizar' : 'Siguiente'}
+              {currentQuestionIndex === surveyQuestions.length - 1 ? 'Finalizar' : 'Siguiente'}
             </button>
             </div>
           <NavBar />
