@@ -33,6 +33,9 @@
     top: -90px; 
 }
 
+.divEncuestaTitle{
+    margin-top: 69px;
+}
 .encuestaTitle {
     color: #000;
     font-family: Montserrat;
@@ -71,6 +74,7 @@
     stroke-width: 1px;
     stroke: var(--Neutral-Black-100, #000);
     margin: 25px 0px 0px 0px;
+    transform: scale(1.5);
 }
 
 .divOpciones {
@@ -78,4 +82,56 @@
     flex-direction: column;
     align-items: flex-start;
     margin: 35px 0px 0px 25px;  
+}
+
+.divBotones {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-content: space-evenly;
+    margin-top: 75px;
+}
+
+.encuestaButton2 {
+    border-radius: 10px;
+    background: var(--Secondary-100, #5F6AFF);
+    display: flex;
+    width: 121px;
+    height: 51px;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    color: white;
+    color: var(--Default-White, #FFF);
+    font-family: Open Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+}
+
+.encuestaButton1 {
+    border-radius: 10px;
+    background: var(--Red, #EB5757);
+    display: flex;
+    width: 121px;
+    height: 51px;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    color: white;
+    color: var(--Default-White, #FFF);
+    font-family: Open Sans;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
 }

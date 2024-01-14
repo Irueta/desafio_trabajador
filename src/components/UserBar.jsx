@@ -6,7 +6,7 @@ import Timer from "./Timer.jsx";
 
 const Userbar = () => {
     const location = useLocation();
-    const isProfileRoute = location.pathname === '/perfil';
+    const isProfileRoute = location.pathname === '/perfil'|| location.pathname ==='/comunidad';
     const [userData, setUserData] = useState(null);
     const [daytime, setDaytime] = useState(null);
 

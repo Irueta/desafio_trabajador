@@ -121,8 +121,8 @@ const Encuestas = () => {
               ))}
             </div>
             <div className='divBotones'>
-              {currentQuestionIndex > 0 && <button onClick={handlePrevious}>Anterior</button>}
-              <button onClick={handleNext}>
+              {currentQuestionIndex > 0 && <button className='encuestaButton encuestaButton1' onClick={handlePrevious}>Anterior</button>}
+              <button className='encuestaButton encuestaButton2' onClick={handleNext}>
               {currentQuestionIndex === surveyQuestions.length - 1 ? 'Finalizar' : 'Siguiente'}
             </button>
             </div>

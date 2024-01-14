@@ -1,0 +1,11 @@
+.perfilPestañas2 {
+    border-bottom: 1px solid var(--Secondary-100, #5F6AFF);
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: -30px;
+  }
+
+  .publicaciones {
+    margin: 15px 0px 0px -15px;
+  }
