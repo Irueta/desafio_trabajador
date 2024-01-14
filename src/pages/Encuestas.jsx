@@ -72,7 +72,7 @@ const Encuestas = () => {
             'EncuestaTitle': questions[0].title, 
             "Respuestas": answers
           });
-          alert('Tus respuestas han sido guardadas.');
+          alert('¡Gracias por completar la encuesta!\nSus respuestas son de gran ayuda para que podamos mejorar sus condiciones laborales.');
           navigate('/perfil');
         }
       };
