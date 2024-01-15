@@ -33,7 +33,7 @@ const getTime=()=>{
     return (
 
         <div className={`userbar_container ${isProfileRoute ? 'no-border' : ''}`}>
-            <img className="foto" src="/userBar/woman1.png" alt="" />
+            {userData.gender === "Masculino" ? <img className="foto" src="/userBar/man1.png" alt="" /> : <img className="foto" src="/userBar/woman1.png" alt="" />}
             <div className="cargoNombre">
                 <h4 className="cargo">{userData.department}</h4>
                 <h3 className="nombre">{userData.name} {userData.surname}</h3>

@@ -49,6 +49,83 @@ const fetchUserData = async () => {
 };
 
 
+
+//funcion para registrar emocion
+const registerEmotion = async (emotion) => {
+    try {
+        const response = await fetch(`${VITE_BACKEND_HOST}/user/emotion`, {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ emotion }),
+        });
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data)
+            return { response, data };
+        } else {
+            return { response, data: null };
+        }
+    } catch (error) {
+        console.error("Error en la solicitud:", error.message);
+        throw error;
+    }
+};
+
+//funcion para registrar actividad
+const registerActivity = async (activity) => {
+    try {
+        const response = await fetch(`${VITE_BACKEND_HOST}/user/activity`, {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ activity }),
+        });
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data)
+            return { response, data };
+        } else {
+            return { response, data: null };
+        }
+    } catch (error) {
+        console.error("Error en la solicitud:", error.message);
+        throw error;
+    }
+};
+
+//funcion para registrar encuesta
+const registerSurvey = async (survey) => {
+    try {
+        const response = await fetch(`${VITE_BACKEND_HOST}/user/survey`, {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ survey }),
+        });
+        if (response.ok) {
+            const data = await response.json();
+            console.log(data)
+            return { response, data };
+        } else {
+            return { response, data: null };
+        }
+    } catch (error) {
+        console.error("Error en la solicitud:", error.message);
+        throw error;
+    }
+};
+
+
+
+
+
 ///FUNCIONES
 
 const getDaytime = () => {  

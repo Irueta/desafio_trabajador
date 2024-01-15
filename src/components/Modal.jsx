@@ -22,7 +22,7 @@ const Modal = ({ isOpen, handleClose, emotion, setIsOpen}) => {
             <div className='datosFichaje'>
             <p className='datosTitulo'>Tipo de fichaje:</p>
             <p className='datosTitulo'>Fecha:</p>
-            <p className='datosInfo'>Entrada</p>
+            <p className='datosInfo'>{timerStatus}</p>
             <p className='datosInfo'>03 / 05 / 2024</p>
             </div>
             <p className='confirmacion'>¿Está seguro de realizar éste fichaje?</p>
@@ -40,7 +40,7 @@ const Modal = ({ isOpen, handleClose, emotion, setIsOpen}) => {
             <div className='datosFichaje'>
             <p className='datosTitulo'>Tipo de fichaje:</p>
             <p className='datosTitulo'>Fecha:</p>
-            <p className='datosInfo'>Entrada</p>
+            <p className='datosInfo'>{timerStatus}</p>
             <p className='datosInfo'>03 / 05 / 2024</p>
             </div>
             <p className='confirmacion'>¿Está seguro de realizar éste fichaje?</p>
@@ -58,7 +58,7 @@ const Modal = ({ isOpen, handleClose, emotion, setIsOpen}) => {
             <div className='datosFichaje'>
             <p className='datosTitulo'>Tipo de fichaje:</p>
             <p className='datosTitulo'>Fecha:</p>
-            <p className='datosInfo'>Entrada</p>
+            <p className='datosInfo'>{timerStatus}</p>
             <p className='datosInfo'>03 / 05 / 2024</p>
             </div>
             <p className='confirmacion'>¿Está seguro de realizar éste fichaje?</p>

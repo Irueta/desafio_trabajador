@@ -19,6 +19,7 @@
   
   .step.active {
     background: #5F6AFF;
+    color: white;
   }
 
   .barra {
