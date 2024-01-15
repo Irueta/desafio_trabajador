@@ -1,7 +1,7 @@
 // TimerButton.js
 import React, { useContext, useEffect, useState } from 'react';
 import { TimerContext } from '../contexts/TimerContext';
-import { fetchUserData } from '../../apiDesafio';
+import { fetchUserData, registerEmotion } from '../../apiDesafio';
 
 const TimerButton = ({ emotion, timerStatus, setIsOpen }) => {
   const { startTimer, stopTimer, isActive } = useContext(TimerContext);
@@ -12,6 +12,7 @@ const TimerButton = ({ emotion, timerStatus, setIsOpen }) => {
   const handleClick = () => {
     const fetchData = async () => {
       const {response,data} = await fetchUserData();
+      const fetchEmotionData = await registerEmotion(emotion, timerStatus);
       if (response.status === 200) {
           setUserData(data);
       }
@@ -19,9 +20,9 @@ const TimerButton = ({ emotion, timerStatus, setIsOpen }) => {
   fetchData();
   console.log(emotion);
   console.log(timerStatus);
-  if (userData !== null) {
+/*   if (userData !== null) {
     console.log(userData);
-  }
+  } */
   setIsOpen(false);
   alert(`Se ha realizado un fichaje de ${timerStatus} con el estado de ánimo ${emotion}\nConocer su estado de ánimo nos sirve de gran ayuda para que podamos mejorar sus condiciones laborales.`);
   };

@@ -36,7 +36,6 @@ const fetchUserData = async () => {
 
         if (response.ok) {
             const data = await response.json();
-            console.log(data);
             return { response, data };
         } else {
             console.error(`Error en la solicitud: ${response.status} - ${response.statusText}`);
@@ -51,15 +50,15 @@ const fetchUserData = async () => {
 
 
 //funcion para registrar emocion
-const registerEmotion = async (emotion) => {
+const registerEmotion = async (emotion, timerStatus) => {
     try {
-        const response = await fetch(`${VITE_BACKEND_HOST}/user/emotion`, {
+        const response = await fetch(`${VITE_BACKEND_HOST}/time/register`, {
             method: "POST",
             credentials: "include",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ emotion }),
+            body: JSON.stringify({ emotionType: emotion, registerType: timerStatus }),
         });
         if (response.ok) {
             const data = await response.json();
@@ -142,4 +141,4 @@ const getDaytime = () => {
 
 
 
-export { loginApi, fetchUserData, getDaytime };
+export { loginApi, fetchUserData, getDaytime, registerEmotion };

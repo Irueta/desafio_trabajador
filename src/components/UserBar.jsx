@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchUserData, getDaytime } from "../../apiDesafio.js";
 import "./UserBar.css";
-import { useLocation } from 'react-router-dom'; 
+import { useLocation, useNavigate } from 'react-router-dom'; 
 import Timer from "./Timer.jsx";
 
 const Userbar = () => {
@@ -9,6 +9,7 @@ const Userbar = () => {
     const isProfileRoute = location.pathname === '/perfil'|| location.pathname ==='/comunidad';
     const [userData, setUserData] = useState(null);
     const [daytime, setDaytime] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -21,9 +22,23 @@ const getTime=()=>{
     const time = getDaytime();
     setDaytime(time);
 }
-        getTime();
-        fetchData();
-    }, []);
+
+const timeoutId = setTimeout(() => {
+    if (!userData) {
+      // Redirigir al usuario al login después de 10 segundos si los datos aún no se han cargado
+      navigate("/login");
+    }
+  }, 3000); // 10 segundos
+
+  getTime();
+  fetchData();
+
+  return () => {
+    // Limpiar el temporizador al desmontar el componente
+    clearTimeout(timeoutId);
+  };
+}, [navigate, userData]);
+    
 
     if (!userData) {
     
