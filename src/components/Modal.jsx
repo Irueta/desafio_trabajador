@@ -27,8 +27,8 @@ const Modal = ({ isOpen, handleClose, emotion, setIsOpen}) => {
             </div>
             <p className='confirmacion'>¿Está seguro de realizar éste fichaje?</p>
             <div className='botones'>
-                <TimerButton emotion={emotion} timerStatus={timerStatus} setIsOpen={setIsOpen}/>
                 <img className='cross' src="/modal/cross.svg" alt="" onClick={handleClose}/>
+                <TimerButton emotion={emotion} timerStatus={timerStatus} setIsOpen={setIsOpen}/>
             </div>
             </div>
             </>}
@@ -45,8 +45,8 @@ const Modal = ({ isOpen, handleClose, emotion, setIsOpen}) => {
             </div>
             <p className='confirmacion'>¿Está seguro de realizar éste fichaje?</p>
             <div className='botones'>
-                <TimerButton emotion={emotion} timerStatus={timerStatus} setIsOpen={setIsOpen}/>
                 <img className='cross' src="/modal/cross.svg" alt="" onClick={handleClose}/>
+                <TimerButton emotion={emotion} timerStatus={timerStatus} setIsOpen={setIsOpen}/>
             </div>
             </div>
             </>}
@@ -63,8 +63,8 @@ const Modal = ({ isOpen, handleClose, emotion, setIsOpen}) => {
             </div>
             <p className='confirmacion'>¿Está seguro de realizar éste fichaje?</p>
             <div className='botones'>
-                <TimerButton emotion={emotion} timerStatus={timerStatus} setIsOpen={setIsOpen}/>
                 <img className='cross' src="/modal/cross.svg" alt="" onClick={handleClose}/>
+                <TimerButton emotion={emotion} timerStatus={timerStatus} setIsOpen={setIsOpen}/>
             </div>
             </div>
             </>}
@@ -81,8 +81,8 @@ const Modal = ({ isOpen, handleClose, emotion, setIsOpen}) => {
             </div>
             <p className='confirmacion'>¿Está seguro de realizar éste fichaje?</p>
             <div className='botones'>
-                <TimerButton emotion={emotion} timerStatus={timerStatus} setIsOpen={setIsOpen}/>
                 <img className='cross' src="/modal/cross.svg" alt="" onClick={handleClose}/>
+                <TimerButton emotion={emotion} timerStatus={timerStatus} setIsOpen={setIsOpen}/>
             </div>
             </div>
             </>}

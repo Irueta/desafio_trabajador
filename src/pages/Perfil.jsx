@@ -36,8 +36,12 @@ const Perfil = () => {
                     <Link to="/encuestas">
                     <img className='pendienteImg' src="/encuestas/pendiente1.svg" alt="" />
                     </Link>
-                    <img  className='pendienteImg'src="/encuestas/pendiente1.svg" alt="" />
-                    <img  className='pendienteImg'src="/encuestas/pendiente1.svg" alt="" />
+                    <Link to="/encuestas">
+                    <img className='pendienteImg' src="/encuestas/pendiente1.svg" alt="" />
+                    </Link>
+                    <Link to="/encuestas">
+                    <img className='pendienteImg' src="/encuestas/pendiente1.svg" alt="" />
+                    </Link>
                 </div>
                 <div className='encuestasRealizadas'>
                     <img className='realizadas' src="/encuestas/imagenRealizada1.svg" alt="" />
