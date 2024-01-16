@@ -72,9 +72,9 @@ const Encuestas = () => {
           try {
             const surveyId = questions[0].id;
             const title = questions[0].title;
+            alert('¡Gracias por completar la encuesta!\nSus respuestas son de gran ayuda para que podamos mejorar sus condiciones laborales.');
             await registerSurveyAnswers(surveyId, title, answers);
             navigate('/perfil');
-            alert('¡Gracias por completar la encuesta!\nSus respuestas son de gran ayuda para que podamos mejorar sus condiciones laborales.');
           } catch (error) {
             console.error("Error al guardar respuestas de la encuesta:", error);
           }
