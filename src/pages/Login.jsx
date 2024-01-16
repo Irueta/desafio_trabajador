@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { loginApi } from '../../apiDesafio.js';
+import { loginApi, changePassword } from '../../apiDesafio.js';
 import './Login.css';
 import happyflow from '/login/happyflow.svg';
 
@@ -15,6 +15,7 @@ const Login = () => {
   const [eyeIcon, setEyeIcon] = useState('/login/eyeOculto.svg');
   const navigate = useNavigate();
   const [newPassword, setNewPassword] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState('');
 
 
   const handleSumbit = async (e) => {
@@ -33,8 +34,27 @@ const Login = () => {
     } else {
       alert('Credenciales incorrectas');
     }
-    
+}
 
+const handleSumbit2 = async (e) => {
+  e.preventDefault();
+if (newPassword === '' || password === '') {
+      setError('Todos los campos son obligatorios');
+      return;
+  }
+  setError(null);
+  const {response, data} = await changePassword(email, password, confirmPassword)
+  console.log(email, password, confirmPassword)
+  console.log(response)
+  console.log(data)
+  if (response.status === 200) {
+    navigate('/fichaje');
+  }else if (response.status === 201) {
+    alert('Tienes que cambiar la contraseña')
+    setNewPassword(true)
+  } else {
+    alert('Credenciales incorrectas');
+  }
 }
 
 
@@ -75,15 +95,15 @@ const handleEyeClick = () => {
           : 
       <form>
         <div className='inputs'>
-        <div className='input2'>
+        <div className='input1'>
         <label>
           <input type={inputType} className='inputLogin' value={password} placeholder='Contraseña' onChange={(e) => setPassword(e.target.value)} />
-          <img src={eyeIcon} alt="eye icon" className="eye-icon" onClick={handleEyeClick} />
+
         </label>
       </div>
         <div className='input2'>
         <label>
-          <input type={inputType} className='inputLogin' value={password} placeholder='Confirmar contraseña' onChange={(e) => setPassword(e.target.value)} />
+          <input type={inputType} className='inputLogin' value={confirmPassword} placeholder='Confirmar contraseña' onChange={(e) => setConfirmPassword(e.target.value)} />
           <img src={eyeIcon} alt="eye icon" className="eye-icon" onClick={handleEyeClick} />
         </label>
       </div>
@@ -91,7 +111,7 @@ const handleEyeClick = () => {
         <div>
         <p className='passForgot'>¿Has olvidado la contraseña?</p>
         </div>
-        <button className='inicio' onClick={handleSumbit}>Cambiar contraseña</button>
+        <button className='inicio' onClick={handleSumbit2}>Cambiar contraseña</button>
       </form>         
           }
       <div className='sincuenta'><p>¿No tienes cuenta?</p></div>

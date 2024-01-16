@@ -143,6 +143,30 @@ const registerSurveyAnswers = async (surveyId, title, answers) => {
     }
 }
 
+//funcion para cambiar contraseña
+const changePassword = async (email, password, confirmPassword) => {
+    try {
+        const response = await fetch(`${VITE_BACKEND_HOST}/user/updatePassword`, {
+            method: "PUT",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password, confirmPassword }),
+        });
+        if (response.ok) {
+            const data = await response.json();
+            return { response, data };
+        } else {
+            return { response, data: null };
+        }
+    } catch (error) {
+        console.error("Error en la solicitud:", error.message);
+        throw error;
+    }
+};
+
+
 
 ///FUNCIONES
 
@@ -160,4 +184,4 @@ const getDaytime = () => {
 
 
 
-export { loginApi, fetchUserData, getDaytime, registerEmotion, registerSurveyAnswers };
+export { loginApi, fetchUserData, getDaytime, registerEmotion, registerSurveyAnswers, changePassword };
