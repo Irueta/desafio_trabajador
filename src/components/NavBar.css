@@ -33,6 +33,10 @@
     text-transform: uppercase;
 }
 
+.navbar__link {
+    margin-top: -1px;
+}
+
 img {
     margin-bottom: 10px;
 }
@@ -42,6 +46,7 @@ img {
     height: 10px;
     width: 100px;
     margin-bottom: 12px;
-    position: absolute ;
+    position: relative;
     top: 0px;
+    left: 0px;
 }

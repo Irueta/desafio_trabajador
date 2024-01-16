@@ -152,7 +152,7 @@ const Encuestas = () => {
         </div> : null
         }
           
-          <NavBar />
+
         </div>
       );
     };
