@@ -31,13 +31,13 @@ const Perfil = () => {
                 </div>
                 <div className='encuestas'>
                     <Link to="/encuestas">
-                    <img className='pendienteImg' src="/encuestas/pendiente1.svg" alt="" />
+                    <img className='pendienteImg' src="/encuestas/pendiente2.svg" alt="" />
                     </Link>
                     <Link to="/encuestas">
                     <img className='pendienteImg' src="/encuestas/pendiente1.svg" alt="" />
                     </Link>
                     <Link to="/encuestas">
-                    <img className='pendienteImg' src="/encuestas/pendiente1.svg" alt="" />
+                    <img className='pendienteImg' src="/encuestas/pendiente3.svg" alt="" />
                     </Link>
                 </div>
                 <div className='encuestasRealizadas'>

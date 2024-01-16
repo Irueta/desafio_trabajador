@@ -92,12 +92,21 @@ const Encuestas = () => {
         newAnswers[currentQuestionIndex] = event.target.value;
         setAnswers(newAnswers);
       };
+
+      const handleBotonClick = () => {
+        const confirmacion = window.confirm('¿Estás seguro de que quieres abandonar la encuesta?');
+        if (confirmacion) {
+          navigate('/perfil');
+        } else {
+          return;
+        }
+      };
     
       return (
         <div>
           {currentQuestion && currentQuestion.question ?
           <div className='headerEncuesta'>
-          <Link to="/perfil"><img className='headerEncuestaImg' src="/encuestas/flecha.svg" alt="" /></Link>
+          <img className='headerEncuestaImg' src="/encuestas/flecha.svg" alt="" onClick={handleBotonClick}/>
           <Link to="/perfil"><h4 className='headerEncuestaH4'>Encuesta</h4></Link>
         </div> : null
           }
