@@ -120,6 +120,7 @@ const registerSurvey = async (survey) => {
 //funcion para registrar respuesta de encuesta
 
 const registerSurveyAnswers = async (surveyId, title, answers) => {
+
     try {
         const response = await fetch(`${VITE_BACKEND_HOST}/survey/create`, {
             method: "POST",
@@ -128,6 +129,7 @@ const registerSurveyAnswers = async (surveyId, title, answers) => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ surveyId, title, answers }),
+
         });
         if (response.ok) {
             const data = await response.json();

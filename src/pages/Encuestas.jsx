@@ -10,6 +10,7 @@ import {registerSurveyAnswers} from '../../apiDesafio';
 
 const Encuestas = () => {
   const navigate = useNavigate();
+  
 
     const questions = [
       {id: 1,
@@ -62,25 +63,21 @@ const Encuestas = () => {
       const [answers, setAnswers] = useState(Array(surveyQuestions.length).fill(null));
       const currentQuestion = surveyQuestions[currentQuestionIndex];
     
-      const handleNext = () => {
+      const handleNext = async () => {
         if (currentQuestionIndex < surveyQuestions.length) {
           setCurrentQuestionIndex(currentQuestionIndex + 1);
         }
-
+    
         if (currentQuestionIndex === surveyQuestions.length - 1) {
-          console.log({
-            'surveyId': questions[0].id, 
-            'title': questions[0].title, 
-            "answers": answers
-          });
-/*           registerSurveyAnswers({
-            'surveyId': questions[0].id,
-            'title': questions[0].title,
-            "answers": answers
-          }); */
-
-          alert('¡Gracias por completar la encuesta!\nSus respuestas son de gran ayuda para que podamos mejorar sus condiciones laborales.');
-          navigate('/perfil');
+          try {
+            const surveyId = questions[0].id;
+            const title = questions[0].title;
+            await registerSurveyAnswers(surveyId, title, answers);
+            navigate('/perfil');
+            alert('¡Gracias por completar la encuesta!\nSus respuestas son de gran ayuda para que podamos mejorar sus condiciones laborales.');
+          } catch (error) {
+            console.error("Error al guardar respuestas de la encuesta:", error);
+          }
         }
       };
     
@@ -98,66 +95,57 @@ const Encuestas = () => {
     
       return (
         <div>
+          {currentQuestion && currentQuestion.question ?
           <div className='headerEncuesta'>
-            <Link to="/perfil"><img className='headerEncuestaImg' src="/encuestas/flecha.svg" alt="" /></Link>
-            <Link to="/perfil"><h4 className='headerEncuestaH4'>Encuesta</h4></Link>
-          </div>
+          <Link to="/perfil"><img className='headerEncuestaImg' src="/encuestas/flecha.svg" alt="" /></Link>
+          <Link to="/perfil"><h4 className='headerEncuestaH4'>Encuesta</h4></Link>
+        </div> : null
+          }
+          {currentQuestion && currentQuestion.question ?
             <div className='encuestasStepBar'>
             <MultiStepBar currentStep={currentQuestionIndex + 1} stepCount={surveyQuestions.length} />
+          </div> : null
+          }
+            {currentQuestion && currentQuestion.title ? 
+          <div className='divEncuestaTitle'>
+            <h1 className='encuestaTitle'>{currentQuestionIndex + 1}. {currentQuestion.title}</h1>
+          </div> : null
+          }
+          {currentQuestion && currentQuestion.question ?
+          <div className='divEncuestaPregunta'>
+            <p className='encuestaPregunta'>{currentQuestion.question}</p>
+          </div> : null
+          }
+          {currentQuestion && currentQuestion.options ?
+          <div className='divOpciones'>
+          {currentQuestion.options.map((option, index) => (
+            <div key={index}>
+              <input
+                type="radio"
+                className='encuestaInput'
+                id={`option-${index}`}
+                name="questionOption"
+                value={option}
+                checked={answers[currentQuestionIndex] === option}
+                onChange={handleOptionChange}
+              />
+              <label className='encuestaOpcion' htmlFor={`option-${index}`}>{option}</label>
             </div>
-            <div className='divEncuestaTitle'>
-              <h1 className='encuestaTitle'>{currentQuestionIndex + 1}. {currentQuestion.title}</h1>
-            </div>
-            <div className='divEncuestaPregunta'>
-              <p className='encuestaPregunta'>{currentQuestion.question}</p>
-            </div>
-            <div className='divOpciones'>
-              {currentQuestion.options.map((option, index) => (
-                <div key={index}>
-                  <input
-                    type="radio"
-                    className='encuestaInput'
-                    id={`option-${index}`}
-                    name="questionOption"
-                    value={option}
-                    checked={answers[currentQuestionIndex] === option}
-                    onChange={handleOptionChange}
-                  />
-                  <label className='encuestaOpcion' htmlFor={`option-${index}`}>{option}</label>
-                </div>
-              ))}
-            </div>
-            <div className='divBotones'>
-              {currentQuestionIndex > 0 && <button className='encuestaButton encuestaButton1' onClick={handlePrevious}>Anterior</button>}
-              <button className='encuestaButton encuestaButton2' onClick={handleNext}>
-              {currentQuestionIndex === surveyQuestions.length - 1 ? 'Finalizar' : 'Siguiente'}
-            </button>
-            </div>
+          ))}
+        </div> : null
+          }
+          {currentQuestion && currentQuestion.options ?
+          <div className='divBotones'>
+          {currentQuestionIndex > 0 && <button className='encuestaButton encuestaButton1' onClick={handlePrevious}>Anterior</button>}
+          <button className='encuestaButton encuestaButton2' onClick={handleNext}>
+            {currentQuestionIndex === surveyQuestions.length - 1 ? 'Finalizar' : 'Siguiente'}
+          </button>
+        </div> : null
+        }
+          
           <NavBar />
         </div>
       );
+    };
     
-      
-}
-
-export default Encuestas;
-
-
-
-/* (
-    <>
-    <div className="steps-container">
-        {[1,2,3,4,5,6].map((stepNumber) => (
-            <span key={stepNumber}>
-                {stepNumber >1 && <div className="line"></div>}
-                <span className={`step-circle ${stepNumber === currentStep ? 'active' : ''}`}>
-                    {stepNumber}
-                </span>
-            </span>
-        ))}
-        <div className="progress-bar-container">
-            <span className="progress-indicator" style={{width:`${((currentStep - 1) /3) *100}%`,}}></span>
-        </div>
-    </div>
-    </>
-) */
+    export default Encuestas;

@@ -8,9 +8,6 @@ import { useNavigate, Link } from 'react-router-dom';
 const Perfil = () => {
     const navigate = useNavigate();
 
-
-
-    
         return (
             <div className="perfil">
                 <UserBar />
