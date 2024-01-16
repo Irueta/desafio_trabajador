@@ -18,8 +18,6 @@ const TimerButton = ({ emotion, timerStatus, setIsOpen }) => {
       }
   }
   fetchData();
-  console.log(emotion);
-  console.log(timerStatus);
 /*   if (userData !== null) {
     console.log(userData);
   } */

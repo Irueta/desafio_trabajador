@@ -15,7 +15,6 @@ const loginApi = async (email, password) => {
         });
         if (response.ok) {
             const data = await response.json();
-            console.log(data)
             return { response, data };
         } else {
             return { response, data: null };
@@ -62,7 +61,6 @@ const registerEmotion = async (emotion, timerStatus) => {
         });
         if (response.ok) {
             const data = await response.json();
-            console.log(data)
             return { response, data };
         } else {
             return { response, data: null };
@@ -86,7 +84,6 @@ const registerActivity = async (activity) => {
         });
         if (response.ok) {
             const data = await response.json();
-            console.log(data)
             return { response, data };
         } else {
             return { response, data: null };
@@ -110,7 +107,6 @@ const registerSurvey = async (survey) => {
         });
         if (response.ok) {
             const data = await response.json();
-            console.log(data)
             return { response, data };
         } else {
             return { response, data: null };
@@ -121,8 +117,29 @@ const registerSurvey = async (survey) => {
     }
 };
 
+//funcion para registrar respuesta de encuesta
 
-
+const registerSurveyAnswers = async (surveyId, title, answers) => {
+    try {
+        const response = await fetch(`${VITE_BACKEND_HOST}/survey/create`, {
+            method: "POST",
+            credentials: "include",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ surveyId, title, answers }),
+        });
+        if (response.ok) {
+            const data = await response.json();
+            return { response, data };
+        } else {
+            return { response, data: null };
+        }
+    } catch (error) {
+        console.error("Error en la solicitud:", error.message);
+        throw error;
+    }
+}
 
 
 ///FUNCIONES
@@ -141,4 +158,4 @@ const getDaytime = () => {
 
 
 
-export { loginApi, fetchUserData, getDaytime, registerEmotion };
+export { loginApi, fetchUserData, getDaytime, registerEmotion, registerSurveyAnswers };

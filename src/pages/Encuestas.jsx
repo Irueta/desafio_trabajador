@@ -5,6 +5,7 @@ import Userbar from '../components/UserBar';
 import NavBar from '../components/NavBar';
 import MultiStepBar from '../components/MultiStepBar';
 import "./Encuestas.css";
+import {registerSurveyAnswers} from '../../apiDesafio';
 
 
 const Encuestas = () => {
@@ -68,10 +69,16 @@ const Encuestas = () => {
 
         if (currentQuestionIndex === surveyQuestions.length - 1) {
           console.log({
-            'EncuestaId': questions[0].id, 
-            'EncuestaTitle': questions[0].title, 
-            "Respuestas": answers
+            'surveyId': questions[0].id, 
+            'title': questions[0].title, 
+            "answers": answers
           });
+/*           registerSurveyAnswers({
+            'surveyId': questions[0].id,
+            'title': questions[0].title,
+            "answers": answers
+          }); */
+
           alert('¡Gracias por completar la encuesta!\nSus respuestas son de gran ayuda para que podamos mejorar sus condiciones laborales.');
           navigate('/perfil');
         }

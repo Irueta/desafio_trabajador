@@ -14,7 +14,7 @@ const Login = () => {
   const [inputType, setInputType] = useState('password');
   const [eyeIcon, setEyeIcon] = useState('/login/eyeOculto.svg');
   const navigate = useNavigate();
-
+  const [newPassword, setNewPassword] = useState(false);
 
 
   const handleSumbit = async (e) => {
@@ -25,12 +25,13 @@ const Login = () => {
     }
     setError(null);
     const {response, data} = await loginApi(email, password)
-    console.log(response)
-    console.log("DATA",data)
-    if (response.status === 200) {
+    if (response.status === 200 && data.result.firstLogin === false) {
       navigate('/fichaje');
-    }else{
-      alert('Credenciales incorrectas')
+    }else if (response.status === 201) {
+      alert('Tienes que cambiar la contraseña')
+      setNewPassword(true)
+    } else {
+      alert('Credenciales incorrectas');
     }
     
 
@@ -50,17 +51,39 @@ const handleEyeClick = () => {
   return (
     <div className='bodyLogin'>
       <img  className='happyflow' src={happyflow} alt='happyflow' />
+      {!newPassword ? 
+            <form>
+            <div className='inputs'>
+            <div className='input1'>
+            <label>
+              <input type="text" className='inputLogin' value={email} placeholder='Usuario' onChange={(e) => setEmail(e.target.value)} />
+              <img src="/login/userIcon.svg" alt="user icon" className="user-icon" />
+            </label>
+            </div>
+            <div className='input2'>
+            <label>
+              <input type={inputType} className='inputLogin' value={password} placeholder='Contraseña' onChange={(e) => setPassword(e.target.value)} />
+              <img src={eyeIcon} alt="eye icon" className="eye-icon" onClick={handleEyeClick} />
+            </label>
+          </div>
+            </div>
+            <div>
+            <p className='passForgot'>¿Has olvidado la contraseña?</p>
+            </div>
+            <button className='inicio' onClick={handleSumbit}>Iniciar sesión</button>
+          </form> 
+          : 
       <form>
         <div className='inputs'>
-        <div className='input1'>
-        <label>
-          <input type="text" className='inputLogin' value={email} placeholder='Usuario' onChange={(e) => setEmail(e.target.value)} />
-          <img src="/login/userIcon.svg" alt="user icon" className="user-icon" />
-        </label>
-        </div>
         <div className='input2'>
         <label>
           <input type={inputType} className='inputLogin' value={password} placeholder='Contraseña' onChange={(e) => setPassword(e.target.value)} />
+          <img src={eyeIcon} alt="eye icon" className="eye-icon" onClick={handleEyeClick} />
+        </label>
+      </div>
+        <div className='input2'>
+        <label>
+          <input type={inputType} className='inputLogin' value={password} placeholder='Confirmar contraseña' onChange={(e) => setPassword(e.target.value)} />
           <img src={eyeIcon} alt="eye icon" className="eye-icon" onClick={handleEyeClick} />
         </label>
       </div>
@@ -68,8 +91,9 @@ const handleEyeClick = () => {
         <div>
         <p className='passForgot'>¿Has olvidado la contraseña?</p>
         </div>
-        <button className='inicio' onClick={handleSumbit}>Iniciar sesión</button>
-      </form>
+        <button className='inicio' onClick={handleSumbit}>Cambiar contraseña</button>
+      </form>         
+          }
       <div className='sincuenta'><p>¿No tienes cuenta?</p></div>
       <div>
       <button className='registro'>ENVIAR SOLICITUD A RRHH</button>
