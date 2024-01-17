@@ -24,6 +24,8 @@ const Comunidad = () => {
                     <img src="/comunidad/publicacionFalsa.svg" alt="" />
                     <img src="/comunidad/linea.svg" alt="" />
                     <img src="/comunidad/publicacionFalsa.svg" alt="" />
+                    <img src="/comunidad/linea.svg" alt="" />
+                    <img src="/comunidad/publicacionFalsa.svg" alt="" />
                 </div>
                 <NavBar />
             </div>

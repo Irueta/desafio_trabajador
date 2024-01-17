@@ -44,11 +44,10 @@ if (newPassword === '' || password === '') {
   }
   setError(null);
   const {response, data} = await changePassword(email, password, confirmPassword)
-  console.log(email, password, confirmPassword)
-  console.log(response)
-  console.log(data)
+  console.log(response.status)
   if (response.status === 200) {
-    navigate('/fichaje');
+    setNewPassword(false)
+    navigate('/login');
   }else if (response.status === 201) {
     alert('Tienes que cambiar la contraseña')
     setNewPassword(true)
